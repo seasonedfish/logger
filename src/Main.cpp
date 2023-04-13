@@ -4,6 +4,11 @@
 
 #include "logger/Logger.h"
 
+// i hate c++ bruh is there really no better way of fixing this
+// https://stackoverflow.com/questions/9110487/
+Logger *Logger::instance{nullptr};
+std::mutex Logger::mutex;
+
 int main() {
-    Logger logger;
+    Logger *logger = Logger::getInstance();
 }
