@@ -10,7 +10,7 @@
 class AbstractFilter {
 public:
     virtual ~AbstractFilter() = 0;
-    virtual bool match(std::string) = 0;
+    virtual bool match(const std::string& text) = 0;
 };
 
 #endif //LOGGER_ABSTRACTFILTER_H
