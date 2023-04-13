@@ -24,3 +24,6 @@ target_link_libraries(loggertest logger gtest_main)
 
 add_executable(threadtest ThreadTest.cpp)
 target_link_libraries(threadtest logger gtest_main)
+
+# TODO run these together
+# https://stackoverflow.com/questions/20378549/how-to-run-all-gtest-files-at-once-using-cmake
