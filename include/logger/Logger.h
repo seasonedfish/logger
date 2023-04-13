@@ -6,11 +6,19 @@
 #define LOGGER_LOGGER_H
 
 #include <mutex>
+#include <forward_list>
+
+#include "AbstractFilter.h"
+#include "AbstractHandler.h"
 
 class Logger {
 private:
+    // Static fields for creating and holding on to the singleton
     static Logger *instance;
     static std::mutex mutex;
+
+    std::forward_list<AbstractFilter *> filters;
+    std::forward_list<AbstractHandler *> handlers;
 protected:
     Logger() = default;
     ~Logger() = default;
