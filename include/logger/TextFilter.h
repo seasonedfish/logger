@@ -9,7 +9,7 @@
 
 #include "AbstractFilter.h"
 
-class TextFilter : AbstractFilter {
+class TextFilter : public AbstractFilter {
 private:
     std::string pattern;
 public:

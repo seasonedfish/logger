@@ -6,6 +6,7 @@
 
 #include "logger/Logger.h"
 #include "logger/StreamHandler.h"
+#include "logger/TextFilter.h"
 
 // i hate c++ bruh is there really no better way of fixing this
 // https://stackoverflow.com/questions/9110487/
@@ -14,7 +15,8 @@ std::mutex Logger::mutex;
 
 int main() {
     StreamHandler handler(&std::cerr);
-    Logger *logger = Logger::getInstance({}, {&handler});
+    TextFilter filter("warning");
+    Logger *logger = Logger::getInstance({&filter}, {&handler});
 
     logger->log("warning! c++ detected");
     logger->log("a regular message");
