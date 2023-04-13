@@ -9,7 +9,7 @@
 
 class AbstractFilter {
 public:
-    virtual ~AbstractFilter() = 0;
+    virtual ~AbstractFilter() = default;
     virtual bool match(const std::string& text) = 0;
 };
 

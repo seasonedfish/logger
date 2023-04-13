@@ -3,7 +3,9 @@
 //
 
 #include <iostream>
+
 #include "logger/Logger.h"
+#include "logger/StreamHandler.h"
 
 // i hate c++ bruh is there really no better way of fixing this
 // https://stackoverflow.com/questions/9110487/
@@ -11,5 +13,10 @@ Logger *Logger::instance{nullptr};
 std::mutex Logger::mutex;
 
 int main() {
-    Logger *logger = Logger::getInstance({}, {});
+    StreamHandler handler(&std::cerr);
+    Logger *logger = Logger::getInstance({}, {&handler});
+
+    logger->log("warning! c++ detected");
+    logger->log("a regular message");
+    logger->log("cool it works");
 }

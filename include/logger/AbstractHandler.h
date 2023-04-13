@@ -9,7 +9,7 @@
 
 class AbstractHandler {
 public:
-    virtual ~AbstractHandler() = 0;
+    virtual ~AbstractHandler() = default;
     virtual void emit(std::string) = 0;
 };
 
