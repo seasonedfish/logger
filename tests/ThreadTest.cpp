@@ -16,7 +16,7 @@ std::mutex Logger::mutex;
 uintptr_t threadedLoggerAddress() {
     // Following code emulates slow initialization.
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
-    Logger *logger = Logger::getInstance();
+    Logger *logger = Logger::getInstance({}, {});
     return reinterpret_cast<std::uintptr_t>(logger);
 }
 
