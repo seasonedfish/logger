@@ -19,5 +19,5 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Now link against gtest_main.
-#add_executable(teststudio16 Studio16.cpp)
-#target_link_libraries(teststudio16 mockos gtest_main)
+add_executable(loggertest LoggerTest.cpp)
+target_link_libraries(loggertest logger gtest_main)

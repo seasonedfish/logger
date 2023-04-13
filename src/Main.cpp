@@ -27,7 +27,9 @@ void threadBar() {
 
 int main() {
     std::thread t1(threadFoo);
-    std::thread t2(threadBar);
+    std::thread t2(threadFoo);
+    std::thread t3(threadFoo);
     t1.join();
     t2.join();
+    t3.join();
 }
