@@ -38,6 +38,12 @@ public:
      * On subsequent runs, returns the the already-created Logger.
      */
     static Logger *getInstance();
+
+    /**
+     * Prints out a log message.
+     */
+    void log(const std::string& message);
+
 };
 
 #endif //LOGGER_LOGGER_H
