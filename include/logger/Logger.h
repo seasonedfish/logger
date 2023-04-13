@@ -20,7 +20,7 @@ private:
     std::forward_list<AbstractFilter *> filters;
     std::forward_list<AbstractHandler *> handlers;
 protected:
-    Logger() = default;
+    Logger(std::forward_list<AbstractFilter *> filters, std::forward_list<AbstractHandler *> handlers);
     ~Logger() = default;
 public:
     /**
@@ -37,7 +37,7 @@ public:
      * On the first run, creates a Logger object.
      * On subsequent runs, returns the the already-created Logger.
      */
-    static Logger *getInstance();
+    static Logger *getInstance(std::forward_list<AbstractFilter *> filters, std::forward_list<AbstractHandler *> handlers);
 
     /**
      * Prints out a log message.
