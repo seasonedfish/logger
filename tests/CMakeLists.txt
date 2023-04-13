@@ -21,3 +21,6 @@ FetchContent_MakeAvailable(googletest)
 # Now link against gtest_main.
 add_executable(loggertest LoggerTest.cpp)
 target_link_libraries(loggertest logger gtest_main)
+
+add_executable(threadtest ThreadTest.cpp)
+target_link_libraries(threadtest logger gtest_main)
