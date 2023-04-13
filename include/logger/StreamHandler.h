@@ -2,8 +2,8 @@
 // Created by Fisher on 4/13/23.
 //
 
-#ifndef LOGGER_STDERRHANDLER_H
-#define LOGGER_STDERRHANDLER_H
+#ifndef LOGGER_STREAMHANDLER_H
+#define LOGGER_STREAMHANDLER_H
 
 #include "AbstractHandler.h"
 
@@ -14,4 +14,4 @@ public:
     explicit StreamHandler(std::ostream* o);
     void emit(std::string) override;
 };
-#endif //LOGGER_STDERRHANDLER_H
+#endif //LOGGER_STREAMHANDLER_H
