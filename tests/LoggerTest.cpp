@@ -8,9 +8,6 @@
 
 #include "logger/Logger.h"
 
-Logger *Logger::instance{nullptr};
-std::mutex Logger::mutex;
-
 TEST(LoggerTest, isSingleton) {
     Logger *logger0 = Logger::getInstance({}, {});
     Logger *logger1 = Logger::getInstance({}, {});

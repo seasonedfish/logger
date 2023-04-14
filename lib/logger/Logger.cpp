@@ -7,6 +7,9 @@
 
 #include "logger/Logger.h"
 
+Logger *Logger::instance{nullptr};
+std::mutex Logger::mutex;
+
 Logger::Logger(std::forward_list<AbstractFilter *> filters, std::forward_list<AbstractHandler *> handlers)
     : filters(std::move(filters)), handlers(std::move(handlers)) {
 }

@@ -10,9 +10,6 @@
 
 #include "logger/Logger.h"
 
-Logger *Logger::instance{nullptr};
-std::mutex Logger::mutex;
-
 uintptr_t threadedLoggerAddress() {
     // Following code emulates slow initialization.
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
