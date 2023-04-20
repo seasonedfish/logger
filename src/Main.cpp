@@ -7,13 +7,17 @@
 #include "logger/Logger.h"
 #include "logger/StreamHandler.h"
 #include "logger/TextFilter.h"
+#include "logger/RegexSearchFilter.h"
 
 int main() {
     StreamHandler handler(&std::cerr);
     TextFilter filter("warning");
-    Logger *logger = Logger::getInstance({&filter}, {&handler});
+    RegexSearchFilter regexSearchFilter(std::regex("[0-9]"));
 
-    logger->log("warning! c++ detected");
+    Logger *logger = Logger::getInstance({&filter, &regexSearchFilter}, {&handler});
+
     logger->log("a regular message");
     logger->log("cool it works");
+    logger->log("lab6 ?????");
+    logger->log("warning: i have 3 apples");
 }
