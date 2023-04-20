@@ -6,12 +6,12 @@
 
 #include "logger/Logger.h"
 #include "logger/StreamHandler.h"
-#include "logger/TextFilter.h"
+#include "logger/SearchFilter.h"
 #include "logger/RegexSearchFilter.h"
 
 int main() {
     StreamHandler handler(&std::cerr);
-    TextFilter filter("warning");
+    SearchFilter filter("warning");
     RegexSearchFilter regexSearchFilter(std::regex("[0-9]"));
 
     Logger *logger = Logger::getInstance({&filter, &regexSearchFilter}, {&handler});
