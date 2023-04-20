@@ -8,13 +8,16 @@
 #include "logger/StreamHandler.h"
 #include "logger/SearchFilter.h"
 #include "logger/RegexSearchFilter.h"
+#include "logger/CStreamHandler.h"
 
 int main() {
     StreamHandler handler(&std::cerr);
     SearchFilter filter("warning");
-    RegexSearchFilter regexSearchFilter(std::regex("[0-9]"));
 
-    Logger *logger = Logger::getInstance({&filter, &regexSearchFilter}, {&handler});
+    RegexSearchFilter regexSearchFilter(std::regex("[0-9]"));
+    CStreamHandler cStreamHandler(stdout);
+
+    Logger *logger = Logger::getInstance({&filter, &regexSearchFilter}, {&handler, &cStreamHandler});
 
     logger->log("a regular message");
     logger->log("cool it works");
